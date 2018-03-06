@@ -4,14 +4,14 @@ exports.up = function(knex, Promise) {
     // TODO: DESCRIBE THE USER TABLE
     table.string('username').defaultTo(null);
     table.string('password').defaultTo(null);
-  });
-
+  }).then(() => {
   // TODO: CREATE ANY OTHER TABLES YOU NEED
-  knex.schema.createTableIfNotExists('goals', function(table) {
-  	table.increments();
-  	table.string('title').defaultTo(null);
-  	table.string('description').defaultTo(null);
-  	table.integer('user').references('id').inTable('users').defaultTo(null);
+	return knex.schema.createTableIfNotExists('goals', function(table) {
+	  	table.increments();
+	  	table.string('title').defaultTo(null);
+	  	table.string('description').defaultTo(null);
+	  	table.integer('user').references('id').inTable('users').defaultTo(null);
+	})
   })
 };
 
