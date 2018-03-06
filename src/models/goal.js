@@ -25,6 +25,7 @@ Goal.retrieveById = function(id) {
 	return db('goals').where({ user: id }).select('*')
 		.then(function(goal) {
 			console.log('Goal retrieved: ', goal);
+			return goal;
 		})
 		.catch(function(err) {
 			console.log('error retrieving goal :-(')

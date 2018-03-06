@@ -17,9 +17,16 @@ router.post('/signup', function(req, res) {
 
   // TODO: Complete the signup functionality:
     // Search for username
-    // If taken, send a 409 status code
-    // If available, hash the password and store it in the database
-      // Send back a 201
+    // var user = User.findByUsername(username);
+    // if (user) {
+    // // If taken, send a 409 status code
+    //   res.sendStatus(409);
+    // } else {
+    // // If available, hash the password and store it in the database
+
+    //   // Send back a 201
+    //   res.sendStatus(201);
+    // }
 });
 
 router.post('/login', function(req, res) {
@@ -28,29 +35,47 @@ router.post('/login', function(req, res) {
 
   // TODO: Complete the login functionality:
     // Search for username
-    // If not found, send back a 401 status code
-    // If found, compare the hashed passwords
-      // If there is a match
-        // Create a token and send it to the client
-      // If the match fails send back a 401 status code
+    // var user = User.findByUsername(username);
+    // if (!user) {
+    // // If not found, send back a 401 status code
+    //     res.sendStatus(401);
+    // } else {
+    // // If found, compare the hashed passwords
+    //   // hash password
+    //   // check for matches
+    //   if () {
+    //   // If there is a match
+    //     // Create a token and send it to the client
+        
+    //   } else {
+    //   // If the match fails send back a 401 status code
+    //     res.sendStatus(401);
+    //   }
+    // }
 });
 
 router.get('/goals', function(req, res) {
   // returns array of all goal titles and ids
-  // INPUT: 
-  // OUTPUT: 
+  // INPUT: user id
+  // OUTPUT: res, array of goals
+  var goals = Goal.findGoalsByUserId(req.body.id);
+  res.send(goals);
 });
 
-router.post('/goals', function() {
+router.post('/goals', function(req, res) {
   // adds new goal to goals table
-  // INPUT: 
-  // OUTPUT: 
+  // INPUT: goal obj with title, description, user id
+  // OUTPUT: res
+  Goal.addGoal(req.body.title, req.body.description, req.body.id);
 });
 
-router.get('/goals/:id', function() {
+router.get('/goals/:id', function(req, res) {
   // returns details of a single goal
-  // INPUT: 
-  // OUTPUT: 
+  // INPUT: goal id
+  // OUTPUT: res, goal object 
+  // parse url, set id var
+  var goal = Goal.retrieveById(id);
+  res.send(goal);
 });
 
 module.exports = router;
