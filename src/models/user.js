@@ -16,7 +16,7 @@ User.findByUsername = function(username) {
 
 User.addUser = function(username, password) {
 	return db('users').insert({ username: username, password: password })
-	    .then(function(user) {
+	    .then(function(result) {
 		  	res.json({ 
 		  		success: true, 
 		  		message: 'successfully inserted user into database'
@@ -28,3 +28,12 @@ User.addUser = function(username, password) {
 }
 
 module.exports = User;
+
+// test queries //
+// INSERT INTO users (username, password) VALUES ('shannon', 'rainbows');
+// INSERT INTO users (username, password) VALUES ('krisha', 'cookies');
+// INSERT INTO users (username, password) VALUES ('shahzeb', 'shazam');
+// INSERT INTO users (username, password) VALUES ('stephanie', 'frenchfries');
+// INSERT INTO users (username, password) VALUES ('jacob', 'jerk');
+
+// GET * FROM users;

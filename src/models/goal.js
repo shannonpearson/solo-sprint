@@ -10,8 +10,11 @@ Goal.addGoal = function(title, description, user) {
 		description: description,
 		user: user
 	})
-	.then(function(goal) {
-		console.log('goal added!');
+	.then(function(result) {
+	  	res.json({ 
+	  		success: true, 
+	  		message: 'successfully added goal'
+	  	})
 	})
 	.catch(function(err) {
 		console.log('error adding goal :-(')
@@ -30,8 +33,11 @@ Goal.retrieveById = function(id) {
 
 Goal.markGoalCompleted = function(id) {
 	return db('goals').where({ id: id }).update({ completed: true })
-		.then(function(goal) {
-			console.log('goal completed!');
+		.then(function(result) {
+		  	res.json({ 
+		  		success: true, 
+		  		message: 'goal completed'
+		  	})
 		})
 		.catch(function(err) {
 			console.log('failed to mark goal completed :-(');

@@ -5,7 +5,10 @@ var app = express();
 
 // TODO: SET UP SERVER
   // Add middleware
+  var database = require('./db.sqlite3');
   // Add static file service
+  app.use(express.static(__dirname + '/client'));
+  app.use(express.static(__dirname + '/node_modules'));
   // Add API routes
 
 // Example route. See server-spec.js for the related test.
