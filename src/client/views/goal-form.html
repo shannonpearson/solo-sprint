@@ -1,7 +1,11 @@
-<form name="goal-form">
+<form name="goal-form" ng-submit="submit()">
   <!--
   TODO:
     - Create inputs for a Goal title, due date and description
     - Use ng-submit or ng-click directives to trigger the submit functionality
   -->
+  <input type="text" ng-model="goal.title">
+  <input type="date" ng-model="goal.duedate">
+  <textarea ng-model="goal.description"> Write a description... </textarea>
+  <input type="submit" id="submit" value="Submit">
 </form>

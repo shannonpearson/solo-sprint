@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
 	  	table.increments();
 	  	table.string('title').defaultTo(null);
 	  	table.string('description').defaultTo(null);
+      table.date('duedate').defaultTo(null);
 	  	table.boolean('completed').defaultTo(false);
 	  	table.integer('user').references('id').inTable('users').defaultTo(null);
 	})

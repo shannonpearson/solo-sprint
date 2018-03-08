@@ -8,6 +8,7 @@ Goal.addGoal = function(title, description, user) {
 	return db('goals').insert({
 		title: title,
 		description: description,
+		completed: false,
 		user: user
 	})
 	.then(function(result) {
@@ -56,3 +57,7 @@ Goal.findGoalsByUserId = function(userid) {
 };
 
 module.exports = Goal;
+
+//INSERT INTO goals (title, description, user) VALUES ('climb mount everest', 'go up this tall mountain', 2);
+//INSERT INTO goals (title, description, user) VALUES ('make pasta', 'just wanna make some tasty penne yo', 1);
+//INSERT INTO goals (title, description, user) VALUES ('run an ultramarathon', '50 miles or bust', 4);

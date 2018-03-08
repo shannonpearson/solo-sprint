@@ -7,6 +7,10 @@
       - Show the users goals here
       - Each Goal should be accompanied by a "Complete Goal" button
     -->
+    <li ng-repeat="goal in goals">
+    	<goal-detail></goal-detail>
+    	<button type="button" ng-click="handleCompleteGoal()"> Complete </button>
+    </li>
   </ol>
 
 </div>
