@@ -5,11 +5,22 @@ angular.module('GoalPosts', [
 
   // TODO: ADD YOUR MODULES HERE
 
-  'ngRoute'
+  'ngRoute',
+  'GoalPosts.GoalForm.Controller',
+  'GoalPosts.Goals.Controller',
+  'GoalPosts.Detail.Controller',
+  'GoalPosts.Auth.Controller'
+
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
     // TODO: ADD ROUTES HERE
+    // show goals for user
+      // render goals list
+    // show goal details
+      // render goal details
+    // submit goal form?
+      // clear goal form?
 
     // TODO: Uncomment the following routes when you are ready to tackle authentication
 

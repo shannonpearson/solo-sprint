@@ -4,10 +4,11 @@ var Goal = {};
 
 // TODO: ADD MORE MODEL FUNCTIONS HERE
 
-Goal.addGoal = function(title, description, user) {
+Goal.addGoal = function(title, description, duedate, user) {
 	return db('goals').insert({
 		title: title,
 		description: description,
+		duedate: duedate,
 		completed: false,
 		user: user
 	})
@@ -23,7 +24,7 @@ Goal.addGoal = function(title, description, user) {
 };
 
 Goal.retrieveById = function(id) {
-	return db('goals').where({ user: id }).select('*')
+	return db('goals').where({ id: id }).select('*')
 		.then(function(goal) {
 			console.log('Goal retrieved: ', goal);
 			return goal;
@@ -55,6 +56,7 @@ Goal.findGoalsByUserId = function(userid) {
 			console.log('failed to retrieve users goals :-(')
 		})
 };
+
 
 module.exports = Goal;
 

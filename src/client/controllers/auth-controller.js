@@ -1,3 +1,5 @@
+import Goal from '../models/goal.js';
+
 angular.module('GoalPosts.Auth.Controller', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
